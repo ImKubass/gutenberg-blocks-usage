@@ -9,16 +9,16 @@
  * License:     GPL-2.0-or-later
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-define( 'GBU_VERSION', '1.0.0' );
-define( 'GBU_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'GBU_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define('GBU_VERSION', '1.0.0');
+define('GBU_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('GBU_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 require_once GBU_PLUGIN_DIR . 'includes/class-block-finder.php';
 require_once GBU_PLUGIN_DIR . 'includes/class-rest-api.php';
 require_once GBU_PLUGIN_DIR . 'includes/class-admin-page.php';
 
-add_action( 'init', array( 'GBU_Rest_Api', 'register_routes' ) );
-add_action( 'admin_menu', array( 'GBU_Admin_Page', 'register_menu' ) );
-add_action( 'admin_enqueue_scripts', array( 'GBU_Admin_Page', 'enqueue_assets' ) );
+add_action('rest_api_init', ['GBU_Rest_Api', 'register_routes']);
+add_action('admin_menu', ['GBU_Admin_Page', 'register_menu']);
+add_action('admin_enqueue_scripts', ['GBU_Admin_Page', 'enqueue_assets']);
