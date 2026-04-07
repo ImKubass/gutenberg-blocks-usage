@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Admin page for Gutenberg Blocks Usage.
  *
@@ -7,22 +9,22 @@
 
 defined('ABSPATH') || exit;
 
-class GBU_Admin_Page
+final class GBU_Admin_Page
 {
 
-    const PAGE_SLUG = 'gutenberg-blocks-usage';
+    public const string PAGE_SLUG = 'gutenberg-blocks-usage';
 
     /**
      * Register the admin menu item (called on 'admin_menu').
      */
-    public static function register_menu()
+    public static function registerMenu(): void
     {
         add_menu_page(
             __('Blocks Usage', 'gutenberg-blocks-usage'),
             __('Blocks Usage', 'gutenberg-blocks-usage'),
             'edit_posts',
             self::PAGE_SLUG,
-            [__CLASS__, 'render_page'],
+            [self::class, 'renderPage'],
             'dashicons-search',
             80
         );
@@ -33,7 +35,7 @@ class GBU_Admin_Page
      *
      * @param string $hook_suffix Current admin page hook.
      */
-    public static function enqueue_assets($hook_suffix)
+    public static function enqueueAssets(string $hook_suffix): void
     {
         if ('toplevel_page_' . self::PAGE_SLUG !== $hook_suffix) {
             return;
@@ -80,7 +82,7 @@ class GBU_Admin_Page
     /**
      * Render the admin page HTML shell.
      */
-    public static function render_page()
+    public static function renderPage(): void
     {
         ?>
         <div class="wrap gbu-wrap">

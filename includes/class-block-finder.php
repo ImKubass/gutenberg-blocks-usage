@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Block Finder – queries the database for Gutenberg block usage.
  *
@@ -7,27 +9,28 @@
 
 defined('ABSPATH') || exit;
 
-class GBU_Block_Finder
+final class GBU_Block_Finder
 {
 
     /**
      * Post statuses that are considered "active" content.
      */
-    const ACTIVE_STATUSES = ['publish', 'draft', 'private', 'pending'];
+    public const array ACTIVE_STATUSES = ['publish', 'draft', 'private', 'pending'];
 
     /**
      * Post types to exclude from every query.
      */
-    const EXCLUDED_POST_TYPES = ['revision', 'attachment', 'nav_menu_item'];
+    public const array EXCLUDED_POST_TYPES = ['revision', 'attachment', 'nav_menu_item'];
 
     /**
      * Return a sorted list of every unique block type used in the database.
      *
      * @return string[] E.g. ['core/paragraph', 'brilo/text-and-media', …]
      */
-    public static function get_all_used_blocks()
+    public static function getAllUsedBlocks(): array
     {
         global $wpdb;
+        /** @var wpdb $wpdb */
 
         $statuses = self::ACTIVE_STATUSES;
         $status_in = implode(', ', array_fill(0, count($statuses), '%s'));
@@ -45,7 +48,7 @@ class GBU_Block_Finder
         );
         // phpcs:enable
 
-        $rows = $wpdb->get_results($query); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+        $rows = $wpdb->get_results($query) ?: []; // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
         $block_names = [];
         foreach ($rows as $row) {
@@ -71,9 +74,10 @@ class GBU_Block_Finder
      *     @type array $items  Array of post data objects.
      * }
      */
-    public static function get_block_usage($block_name)
+    public static function getBlockUsage(string $block_name): array
     {
         global $wpdb;
+        /** @var wpdb $wpdb */
 
         // Sanitise – only allow valid block-name characters.
         if (!preg_match('/^[a-z0-9][a-z0-9\-]*(?:\/[a-z0-9][a-z0-9\-]*)?$/', $block_name)) {
@@ -101,7 +105,7 @@ class GBU_Block_Finder
         );
         // phpcs:enable
 
-        $rows = $wpdb->get_results($query); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+        $rows = $wpdb->get_results($query) ?: []; // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
         $items = [];
         foreach ($rows as $row) {

@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * REST API endpoints for Gutenberg Blocks Usage.
  *
@@ -12,23 +14,23 @@
 
 defined('ABSPATH') || exit;
 
-class GBU_Rest_Api
+final class GBU_Rest_Api
 {
 
-    const NAMESPACE = 'gutenberg-blocks-usage/v1';
+    public const stringNAMESPACE = 'gutenberg-blocks-usage/v1';
 
     /**
      * Register REST routes (called on 'rest_api_init').
      */
-    public static function register_routes()
+    public static function registerRoutes(): void
     {
         register_rest_route(
             self::NAMESPACE ,
             '/blocks',
             [
                 'methods' => WP_REST_Server::READABLE,
-                'callback' => [__CLASS__, 'get_blocks'],
-                'permission_callback' => [__CLASS__, 'permissions_check'],
+                'callback' => [self::class, 'getBlocks'],
+                'permission_callback' => [self::class, 'permissionsCheck'],
             ]
         );
 
@@ -37,15 +39,15 @@ class GBU_Rest_Api
             '/usage',
             [
                 'methods' => WP_REST_Server::READABLE,
-                'callback' => [__CLASS__, 'get_usage'],
-                'permission_callback' => [__CLASS__, 'permissions_check'],
+                'callback' => [self::class, 'getUsage'],
+                'permission_callback' => [self::class, 'permissionsCheck'],
                 'args' => [
                     'block' => [
                         'required' => true,
                         'type' => 'string',
                         'sanitize_callback' => 'sanitize_text_field',
-                        'validate_callback' => function ($value) {
-                            return (bool) preg_match('/^[a-z0-9][a-z0-9\-]*(?:\/[a-z0-9][a-z0-9\-]*)?$/', $value);
+                        'validate_callback' => static function (mixed $value): bool {
+                            return is_string($value) && preg_match('/^[a-z0-9][a-z0-9\-]*(?:\/[a-z0-9][a-z0-9\-]*)?$/', $value) === 1;
                         },
                     ],
                 ],
@@ -56,7 +58,7 @@ class GBU_Rest_Api
     /**
      * Only editors / admins may access these endpoints.
      */
-    public static function permissions_check()
+    public static function permissionsCheck(): bool
     {
         return current_user_can('edit_posts');
     }
@@ -64,19 +66,19 @@ class GBU_Rest_Api
     /**
      * GET /blocks
      */
-    public static function get_blocks(WP_REST_Request $request)
+    public static function getBlocks(WP_REST_Request $request): WP_REST_Response|WP_HTTP_Response|WP_Error
     {
-        $blocks = GBU_Block_Finder::get_all_used_blocks();
+        $blocks = GBU_Block_Finder::getAllUsedBlocks();
         return rest_ensure_response($blocks);
     }
 
     /**
      * GET /usage?block=<block-name>
      */
-    public static function get_usage(WP_REST_Request $request)
+    public static function getUsage(WP_REST_Request $request): WP_REST_Response|WP_HTTP_Response|WP_Error
     {
-        $block = $request->get_param('block');
-        $data = GBU_Block_Finder::get_block_usage($block);
+        $block = (string) $request->get_param('block');
+        $data = GBU_Block_Finder::getBlockUsage($block);
         return rest_ensure_response($data);
     }
 }
