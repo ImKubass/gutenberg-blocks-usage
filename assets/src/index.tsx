@@ -1,6 +1,6 @@
-import { createRoot } from "react-dom/client"
 import { App } from "@root/ui/App"
 import type { GbuConfig } from "@root/ui/types"
+import { createRoot } from "react-dom/client"
 
 declare global {
 	interface Window {

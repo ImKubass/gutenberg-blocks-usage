@@ -1,9 +1,9 @@
-import { useActionState, useEffect, useState } from "react"
-import { apiFetch } from "@root/ui/api"
 import { ResultsGroup } from "@components/groups/ResultsGroup"
 import { SearchGroup } from "@components/groups/SearchGroup"
-import { __, sprintf } from "@wordpress/i18n"
+import { apiFetch } from "@root/ui/api"
 import type { GbuConfig, UsageResponse } from "@root/ui/types"
+import { __, sprintf } from "@wordpress/i18n"
+import { useActionState, useEffect, useState } from "react"
 
 type AppProps = {
 	config: GbuConfig
