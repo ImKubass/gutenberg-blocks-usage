@@ -5,11 +5,9 @@ A WordPress plugin that lets you find where any Gutenberg block is used across y
 ## Features
 
 - Lists every unique Gutenberg block type currently present in the database.
-- Select a block from the dropdown and click **Search**.
-- Displays a table with every post/page that contains the block, including:
-  - Post title, type, and status
-  - Number of occurrences of the block in that post
-  - Direct **Edit** and **View** links
+- Lets editors quickly search usage of a selected block from the admin page.
+- Shows post title, post type, post status, and occurrence count.
+- Includes direct Edit and View links for each result row.
 
 ## Installation
 
@@ -21,20 +19,39 @@ A WordPress plugin that lets you find where any Gutenberg block is used across y
 
 1. Open **Blocks Usage** from the admin menu.
 2. Wait for the dropdown to load all block types found in your database.
-3. Select a block (e.g. `brilo/text-and-media`).
+3. Select a block (for example `core/paragraph`).
 4. Click **Search**.
 5. The results table shows every post/page that uses the block, the occurrence count, and action links.
 
 ## REST API
 
-The plugin exposes two authenticated endpoints (requires `edit_posts` capability):
+The plugin exposes two authenticated endpoints.
+Access requires the `edit_posts` capability and valid WordPress REST authentication (nonce/cookie in wp-admin).
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET` | `/wp-json/gutenberg-blocks-usage/v1/blocks` | Returns an array of all unique block names used in the database. |
 | `GET` | `/wp-json/gutenberg-blocks-usage/v1/usage?block=<name>` | Returns `{ total, items[] }` for the given block. |
 
+## Development (Assets)
+
+The admin UI assets are built from TypeScript and CSS using Bun.
+
+1. Go to the assets folder.
+2. Install dependencies.
+3. Build assets or run watch mode.
+
+```bash
+cd assets
+bun install
+bun run build
+# or
+bun run watch
+```
+
+Built files are generated to `assets/build/index.js` and `assets/build/index.css`.
+
 ## Requirements
 
 - WordPress 5.8+
-- PHP 7.4+
+- PHP 8.3+

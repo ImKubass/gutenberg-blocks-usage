@@ -1,7 +1,8 @@
 {
   "name": "assets",
   "scripts": {
-    "build": "bun run build.ts"
+    "build": "bun run build.ts",
+    "watch": "bun --watch run build.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
