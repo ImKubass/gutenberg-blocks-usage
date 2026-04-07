@@ -2,9 +2,13 @@
   "name": "assets",
   "scripts": {
     "build": "bun run build.ts",
-    "watch": "bun --watch run build.ts"
+    "watch": "bun --watch run build.ts",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check ."
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.10",
     "@types/bun": "latest",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
