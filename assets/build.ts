@@ -5,6 +5,7 @@ await Bun.build({
   outdir: "./build",
   sourcemap: "linked",
   minify: true,
+  publicPath: "./",
   metafile: {
     json: "./meta.json",
     markdown: "./meta.md",
