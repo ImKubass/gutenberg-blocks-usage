@@ -1,5 +1,5 @@
-import { Chip } from "../core/Chip";
-import type { UsageItem } from "../../types";
+import { Chip } from "@components/core/Chip";
+import type { UsageItem } from "@root/ui/types";
 
 type TableGroupProps = {
   items: UsageItem[];

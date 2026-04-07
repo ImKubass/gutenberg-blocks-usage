@@ -1,5 +1,5 @@
-import { Button } from "../core/Button";
-import { Select } from "../core/Select";
+import { Button } from "@components/core/Button";
+import { Select } from "@components/core/Select";
 
 type SearchGroupProps = {
   blocks: string[];

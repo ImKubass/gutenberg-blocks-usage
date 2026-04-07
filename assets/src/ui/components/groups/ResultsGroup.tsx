@@ -1,7 +1,7 @@
-import { Notice } from "../core/Notice";
-import { Spinner } from "../core/Spinner";
-import { TableGroup } from "./TableGroup";
-import type { UsageResponse } from "../../types";
+import { Notice } from "@components/core/Notice";
+import { Spinner } from "@components/core/Spinner";
+import { TableGroup } from "@components/groups/TableGroup";
+import type { UsageResponse } from "@root/ui/types";
 
 type ResultsGroupProps = {
   isSearching: boolean;

@@ -1,13 +1,15 @@
 import { useActionState, useEffect, useState } from "react";
-import { apiFetch } from "./api";
-import { ResultsGroup } from "./components/groups/ResultsGroup";
-import { SearchGroup } from "./components/groups/SearchGroup";
+import { apiFetch } from "@root/ui/api";
+import { ResultsGroup } from "@components/groups/ResultsGroup";
+import { SearchGroup } from "@components/groups/SearchGroup";
 import { __, sprintf } from "@wordpress/i18n";
-import type { GbuConfig, UsageResponse } from "./types";
+import type { GbuConfig, UsageResponse } from "@root/ui/types";
 
 type AppProps = {
   config: GbuConfig;
 };
+
+const I18N_DOMAIN = "gutenberg-blocks-usage";
 
 type SearchState = {
   usage: UsageResponse | null;
@@ -56,7 +58,7 @@ export function App({ config }: AppProps) {
         return {
           usage: null,
           searchedBlock: normalizedBlock,
-          errorMessage: __("An error occurred. Please try again."),
+          errorMessage: __("An error occurred. Please try again.", I18N_DOMAIN),
         };
       }
     },
@@ -69,7 +71,9 @@ export function App({ config }: AppProps) {
         const response = await apiFetch<string[]>(`${apiBase}/blocks`, nonce);
         setBlocks(response);
       } catch {
-        setLoadErrorMessage(__("An error occurred. Please try again."));
+        setLoadErrorMessage(
+          __("An error occurred. Please try again.", I18N_DOMAIN),
+        );
       } finally {
         setIsLoadingBlocks(false);
       }
@@ -79,7 +83,7 @@ export function App({ config }: AppProps) {
   }, [apiBase, nonce]);
 
   const foundIn = sprintf(
-    __("Found in %d post(s):"),
+    __("Found in %d post(s):", I18N_DOMAIN),
     searchState.usage?.total ?? 0,
   );
 
@@ -90,10 +94,10 @@ export function App({ config }: AppProps) {
         selectedBlock={selectedBlock}
         isLoadingBlocks={isLoadingBlocks}
         isSearching={isSearching}
-        loadingLabel={__("Loading…")}
-        noBlocksLabel={__("No blocks found in the database.")}
-        selectBlockLabel={__("Select a block…")}
-        searchLabel={__("Search")}
+        loadingLabel={__("Loading…", I18N_DOMAIN)}
+        noBlocksLabel={__("No blocks found in the database.", I18N_DOMAIN)}
+        selectBlockLabel={__("Select a block…", I18N_DOMAIN)}
+        searchLabel={__("Search", I18N_DOMAIN)}
         onChangeBlock={setSelectedBlock}
         onSearchAction={runSearchAction}
       />
@@ -103,16 +107,16 @@ export function App({ config }: AppProps) {
         errorMessage={loadErrorMessage || searchState.errorMessage}
         searchedBlock={searchState.searchedBlock}
         usage={searchState.usage}
-        noResultsLabel={__("This block is not used anywhere.")}
+        noResultsLabel={__("This block is not used anywhere.", I18N_DOMAIN)}
         foundInLabel={foundIn}
         tableLabels={{
-          title: __("Title"),
-          type: __("Type"),
-          status: __("Status"),
-          occurrences: __("Occurrences"),
-          actions: __("Actions"),
-          edit: __("Edit"),
-          view: __("View"),
+          title: __("Title", I18N_DOMAIN),
+          type: __("Type", I18N_DOMAIN),
+          status: __("Status", I18N_DOMAIN),
+          occurrences: __("Occurrences", I18N_DOMAIN),
+          actions: __("Actions", I18N_DOMAIN),
+          edit: __("Edit", I18N_DOMAIN),
+          view: __("View", I18N_DOMAIN),
         }}
       />
     </>
