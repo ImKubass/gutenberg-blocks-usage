@@ -1,24 +1,603 @@
 {
   "inputs": {
-    "src/index.ts": {
-      "bytes": 4995,
+    "src/index.tsx": {
+      "bytes": 438,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/react-dom/client.js",
+          "kind": "import-statement",
+          "original": "react-dom/client"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/App.tsx",
+          "kind": "import-statement",
+          "original": "./ui/App"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/react/cjs/react-jsx-dev-runtime.development.js",
+          "kind": "import-statement",
+          "original": "react/jsx-dev-runtime"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/react-dom/client.js": {
+      "bytes": 619,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/react-dom/index.js",
+          "kind": "import-statement",
+          "original": "react-dom"
+        }
+      ],
+      "format": "cjs"
+    },
+    "src/ui/App.tsx": {
+      "bytes": 2893,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/react/cjs/react.development.js",
+          "kind": "import-statement",
+          "original": "react"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/api.ts",
+          "kind": "import-statement",
+          "original": "./api"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/components/groups/ResultsGroup.tsx",
+          "kind": "import-statement",
+          "original": "./components/groups/ResultsGroup"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/components/groups/SearchGroup.tsx",
+          "kind": "import-statement",
+          "original": "./components/groups/SearchGroup"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/i18n/build-module/index.mjs",
+          "kind": "import-statement",
+          "original": "@wordpress/i18n"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/react/cjs/react-jsx-dev-runtime.development.js",
+          "kind": "import-statement",
+          "original": "react/jsx-dev-runtime"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/ui/components/groups/SearchGroup.tsx": {
+      "bytes": 1346,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/components/core/Button.tsx",
+          "kind": "import-statement",
+          "original": "../core/Button"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/components/core/Select.tsx",
+          "kind": "import-statement",
+          "original": "../core/Select"
+        },
+        {
+          "path": "react/jsx-dev-runtime",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/i18n/build-module/index.mjs": {
+      "bytes": 486,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/i18n/build-module/sprintf.mjs",
+          "kind": "import-statement",
+          "original": "./sprintf.mjs"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/i18n/build-module/create-i18n.mjs",
+          "kind": "import-statement",
+          "original": "./create-i18n.mjs"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/i18n/build-module/default-i18n.mjs",
+          "kind": "import-statement",
+          "original": "./default-i18n.mjs"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/ui/components/groups/ResultsGroup.tsx": {
+      "bytes": 1346,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/components/core/Notice.tsx",
+          "kind": "import-statement",
+          "original": "../core/Notice"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/components/core/Spinner.tsx",
+          "kind": "import-statement",
+          "original": "../core/Spinner"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/components/groups/TableGroup.tsx",
+          "kind": "import-statement",
+          "original": "./TableGroup"
+        },
+        {
+          "path": "react/jsx-dev-runtime",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/ui/api.ts": {
+      "bytes": 338,
       "imports": [
       ],
       "format": "esm"
+    },
+    "node_modules/react/cjs/react-jsx-dev-runtime.development.js": {
+      "bytes": 42101,
+      "imports": [
+        {
+          "path": "react",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "cjs"
+    },
+    "node_modules/react-dom/index.js": {
+      "bytes": 1363,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/react-dom/cjs/react-dom.development.js",
+          "kind": "import-statement",
+          "original": "./cjs/react-dom.development.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    "src/ui/components/groups/TableGroup.tsx": {
+      "bytes": 1723,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/src/ui/components/core/Chip.tsx",
+          "kind": "import-statement",
+          "original": "../core/Chip"
+        },
+        {
+          "path": "react/jsx-dev-runtime",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/ui/components/core/Spinner.tsx": {
+      "bytes": 92,
+      "imports": [
+        {
+          "path": "react/jsx-dev-runtime",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/ui/components/core/Notice.tsx": {
+      "bytes": 260,
+      "imports": [
+        {
+          "path": "react/jsx-dev-runtime",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/i18n/build-module/default-i18n.mjs": {
+      "bytes": 832,
+      "imports": [
+        {
+          "path": "./create-i18n.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/index.mjs",
+          "kind": "import-statement",
+          "original": "@wordpress/hooks"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/i18n/build-module/sprintf.mjs": {
+      "bytes": 205,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@tannin/sprintf/src/index.js",
+          "kind": "import-statement",
+          "original": "@tannin/sprintf"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/i18n/build-module/create-i18n.mjs": {
+      "bytes": 5072,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/tannin/index.js",
+          "kind": "import-statement",
+          "original": "tannin"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/ui/components/core/Chip.tsx": {
+      "bytes": 226,
+      "imports": [
+        {
+          "path": "react/jsx-dev-runtime",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/react/cjs/react.development.js": {
+      "bytes": 87593,
+      "imports": [
+      ],
+      "format": "cjs"
+    },
+    "src/ui/components/core/Button.tsx": {
+      "bytes": 455,
+      "imports": [
+        {
+          "path": "react/jsx-dev-runtime",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/ui/components/core/Select.tsx": {
+      "bytes": 858,
+      "imports": [
+        {
+          "path": "react/jsx-dev-runtime",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/index.mjs": {
+      "bytes": 814,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/createHooks.mjs",
+          "kind": "import-statement",
+          "original": "./createHooks.mjs"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/tannin/index.js": {
+      "bytes": 5254,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@tannin/plural-forms/index.js",
+          "kind": "import-statement",
+          "original": "@tannin/plural-forms"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/react-dom/cjs/react-dom.development.js": {
+      "bytes": 1029622,
+      "imports": [
+        {
+          "path": "react",
+          "kind": "import-statement"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/scheduler/cjs/scheduler.development.js",
+          "kind": "import-statement",
+          "original": "scheduler"
+        }
+      ],
+      "format": "cjs"
+    },
+    "node_modules/@tannin/sprintf/src/index.js": {
+      "bytes": 5492,
+      "imports": [
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/createHooks.mjs": {
+      "bytes": 2243,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/createAddHook.mjs",
+          "kind": "import-statement",
+          "original": "./createAddHook.mjs"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/createRemoveHook.mjs",
+          "kind": "import-statement",
+          "original": "./createRemoveHook.mjs"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/createHasHook.mjs",
+          "kind": "import-statement",
+          "original": "./createHasHook.mjs"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/createRunHook.mjs",
+          "kind": "import-statement",
+          "original": "./createRunHook.mjs"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/createCurrentHook.mjs",
+          "kind": "import-statement",
+          "original": "./createCurrentHook.mjs"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/createDoingHook.mjs",
+          "kind": "import-statement",
+          "original": "./createDoingHook.mjs"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/createDidHook.mjs",
+          "kind": "import-statement",
+          "original": "./createDidHook.mjs"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@tannin/plural-forms/index.js": {
+      "bytes": 517,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@tannin/compile/index.js",
+          "kind": "import-statement",
+          "original": "@tannin/compile"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/createAddHook.mjs": {
+      "bytes": 1705,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/validateNamespace.mjs",
+          "kind": "import-statement",
+          "original": "./validateNamespace.mjs"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@wordpress/hooks/build-module/validateHookName.mjs",
+          "kind": "import-statement",
+          "original": "./validateHookName.mjs"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/createRemoveHook.mjs": {
+      "bytes": 1452,
+      "imports": [
+        {
+          "path": "./validateNamespace.mjs",
+          "kind": "import-statement"
+        },
+        {
+          "path": "./validateHookName.mjs",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/createDidHook.mjs": {
+      "bytes": 507,
+      "imports": [
+        {
+          "path": "./validateHookName.mjs",
+          "kind": "import-statement"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/createRunHook.mjs": {
+      "bytes": 2052,
+      "imports": [
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/createCurrentHook.mjs": {
+      "bytes": 424,
+      "imports": [
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/createDoingHook.mjs": {
+      "bytes": 502,
+      "imports": [
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/createHasHook.mjs": {
+      "bytes": 526,
+      "imports": [
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/validateNamespace.mjs": {
+      "bytes": 598,
+      "imports": [
+      ],
+      "format": "esm"
+    },
+    "node_modules/@wordpress/hooks/build-module/validateHookName.mjs": {
+      "bytes": 688,
+      "imports": [
+      ],
+      "format": "esm"
+    },
+    "node_modules/@tannin/compile/index.js": {
+      "bytes": 625,
+      "imports": [
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@tannin/postfix/index.js",
+          "kind": "import-statement",
+          "original": "@tannin/postfix"
+        },
+        {
+          "path": "/Users/jakubjetleb/Webs/gutenberg-blocks-usage/assets/node_modules/@tannin/evaluate/index.js",
+          "kind": "import-statement",
+          "original": "@tannin/evaluate"
+        }
+      ],
+      "format": "esm"
+    },
+    "node_modules/@tannin/postfix/index.js": {
+      "bytes": 2806,
+      "imports": [
+      ],
+      "format": "esm"
+    },
+    "node_modules/@tannin/evaluate/index.js": {
+      "bytes": 1987,
+      "imports": [
+      ],
+      "format": "esm"
+    },
+    "node_modules/scheduler/cjs/scheduler.development.js": {
+      "bytes": 17497,
+      "imports": [
+      ],
+      "format": "cjs"
     }
   },
   "outputs": {
     "./index.js": {
-      "bytes": 2427,
+      "bytes": 347180,
       "inputs": {
-        "src/index.ts": {
-          "bytesInOutput": 2426
+        "node_modules/react/cjs/react.development.js": {
+          "bytesInOutput": 27405
+        },
+        "node_modules/scheduler/cjs/scheduler.development.js": {
+          "bytesInOutput": 5118
+        },
+        "node_modules/react-dom/cjs/react-dom.development.js": {
+          "bytesInOutput": 285782
+        },
+        "node_modules/react-dom/index.js": {
+          "bytesInOutput": 52
+        },
+        "node_modules/react-dom/client.js": {
+          "bytesInOutput": 353
+        },
+        "src/ui/api.ts": {
+          "bytesInOutput": 170
+        },
+        "node_modules/react/cjs/react-jsx-dev-runtime.development.js": {
+          "bytesInOutput": 13209
+        },
+        "src/ui/components/core/Notice.tsx": {
+          "bytesInOutput": 152
+        },
+        "src/ui/components/core/Spinner.tsx": {
+          "bytesInOutput": 126
+        },
+        "src/ui/components/core/Chip.tsx": {
+          "bytesInOutput": 128
+        },
+        "src/ui/components/groups/TableGroup.tsx": {
+          "bytesInOutput": 1552
+        },
+        "src/ui/components/groups/ResultsGroup.tsx": {
+          "bytesInOutput": 748
+        },
+        "src/ui/components/core/Button.tsx": {
+          "bytesInOutput": 199
+        },
+        "src/ui/components/core/Select.tsx": {
+          "bytesInOutput": 397
+        },
+        "src/ui/components/groups/SearchGroup.tsx": {
+          "bytesInOutput": 573
+        },
+        "node_modules/@tannin/sprintf/src/index.js": {
+          "bytesInOutput": 604
+        },
+        "node_modules/@wordpress/i18n/build-module/sprintf.mjs": {
+          "bytesInOutput": 38
+        },
+        "node_modules/@tannin/postfix/index.js": {
+          "bytesInOutput": 575
+        },
+        "node_modules/@tannin/evaluate/index.js": {
+          "bytesInOutput": 719
+        },
+        "node_modules/@tannin/compile/index.js": {
+          "bytesInOutput": 62
+        },
+        "node_modules/@tannin/plural-forms/index.js": {
+          "bytesInOutput": 63
+        },
+        "node_modules/tannin/index.js": {
+          "bytesInOutput": 855
+        },
+        "node_modules/@wordpress/i18n/build-module/create-i18n.mjs": {
+          "bytesInOutput": 1860
+        },
+        "node_modules/@wordpress/hooks/build-module/validateNamespace.mjs": {
+          "bytesInOutput": 295
+        },
+        "node_modules/@wordpress/hooks/build-module/validateHookName.mjs": {
+          "bytesInOutput": 365
+        },
+        "node_modules/@wordpress/hooks/build-module/createAddHook.mjs": {
+          "bytesInOutput": 616
+        },
+        "node_modules/@wordpress/hooks/build-module/createRemoveHook.mjs": {
+          "bytesInOutput": 424
+        },
+        "node_modules/@wordpress/hooks/build-module/createHasHook.mjs": {
+          "bytesInOutput": 146
+        },
+        "node_modules/@wordpress/hooks/build-module/createRunHook.mjs": {
+          "bytesInOutput": 706
+        },
+        "node_modules/@wordpress/hooks/build-module/createCurrentHook.mjs": {
+          "bytesInOutput": 107
+        },
+        "node_modules/@wordpress/hooks/build-module/createDoingHook.mjs": {
+          "bytesInOutput": 153
+        },
+        "node_modules/@wordpress/hooks/build-module/createDidHook.mjs": {
+          "bytesInOutput": 110
+        },
+        "node_modules/@wordpress/hooks/build-module/createHooks.mjs": {
+          "bytesInOutput": 1125
+        },
+        "node_modules/@wordpress/hooks/build-module/index.mjs": {
+          "bytesInOutput": 12
+        },
+        "node_modules/@wordpress/i18n/build-module/default-i18n.mjs": {
+          "bytesInOutput": 270
+        },
+        "node_modules/@wordpress/i18n/build-module/index.mjs": {
+          "bytesInOutput": 0
+        },
+        "src/ui/App.tsx": {
+          "bytesInOutput": 1321
+        },
+        "src/index.tsx": {
+          "bytesInOutput": 239
         }
       },
       "imports": [
       ],
       "exports": [],
-      "entryPoint": "src/index.ts"
+      "entryPoint": "src/index.tsx"
     },
     "./index.css": {
       "bytes": 1952,
