@@ -1,0 +1,35 @@
+{
+  "inputs": {
+    "src/index.ts": {
+      "bytes": 4995,
+      "imports": [
+      ],
+      "format": "esm"
+    }
+  },
+  "outputs": {
+    "./index.js": {
+      "bytes": 2427,
+      "inputs": {
+        "src/index.ts": {
+          "bytesInOutput": 2426
+        }
+      },
+      "imports": [
+      ],
+      "exports": [],
+      "entryPoint": "src/index.ts"
+    },
+    "./index.css": {
+      "bytes": 1952,
+      "inputs": {
+      },
+      "imports": [
+      ],
+      "exports": [
+        "default"
+      ],
+      "entryPoint": "src/index.css"
+    }
+  }
+}

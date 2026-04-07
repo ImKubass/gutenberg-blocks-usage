@@ -43,14 +43,14 @@ final class GBU_Admin_Page
 
         wp_enqueue_style(
             'gbu-admin',
-            GBU_PLUGIN_URL . 'assets/css/admin.css',
+            GBU_PLUGIN_URL . 'assets/build/index.css',
             [],
             GBU_VERSION
         );
 
         wp_enqueue_script(
             'gbu-admin',
-            GBU_PLUGIN_URL . 'assets/js/admin.js',
+            GBU_PLUGIN_URL . 'assets/build/index.js',
             [],
             GBU_VERSION,
             true
