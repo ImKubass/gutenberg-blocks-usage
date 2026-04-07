@@ -17,15 +17,12 @@ defined('ABSPATH') || exit;
 final class GBU_Rest_Api
 {
 
-    public const stringNAMESPACE = 'gutenberg-blocks-usage/v1';
+    public const string API_NAMESPACE = 'gutenberg-blocks-usage/v1';
 
-    /**
-     * Register REST routes (called on 'rest_api_init').
-     */
     public static function registerRoutes(): void
     {
         register_rest_route(
-            self::NAMESPACE ,
+            self::API_NAMESPACE,
             '/blocks',
             [
                 'methods' => WP_REST_Server::READABLE,
@@ -35,7 +32,7 @@ final class GBU_Rest_Api
         );
 
         register_rest_route(
-            self::NAMESPACE ,
+            self::API_NAMESPACE,
             '/usage',
             [
                 'methods' => WP_REST_Server::READABLE,
