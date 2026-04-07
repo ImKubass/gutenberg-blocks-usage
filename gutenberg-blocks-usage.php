@@ -1,0 +1,24 @@
+<?php
+/**
+ * Plugin Name: Gutenberg Blocks Usage
+ * Plugin URI:  https://github.com/ImKubass/gutenberg-blocks-usage
+ * Description: Find and list all posts/pages where a specific Gutenberg block is used.
+ * Version:     1.0.0
+ * Author:      ImKubass
+ * Text Domain: gutenberg-blocks-usage
+ * License:     GPL-2.0-or-later
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+define( 'GBU_VERSION', '1.0.0' );
+define( 'GBU_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'GBU_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
+require_once GBU_PLUGIN_DIR . 'includes/class-block-finder.php';
+require_once GBU_PLUGIN_DIR . 'includes/class-rest-api.php';
+require_once GBU_PLUGIN_DIR . 'includes/class-admin-page.php';
+
+add_action( 'init', array( 'GBU_Rest_Api', 'register_routes' ) );
+add_action( 'admin_menu', array( 'GBU_Admin_Page', 'register_menu' ) );
+add_action( 'admin_enqueue_scripts', array( 'GBU_Admin_Page', 'enqueue_assets' ) );
