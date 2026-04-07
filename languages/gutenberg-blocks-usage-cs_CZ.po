@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gutenberg Blocks Usage 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-07 00:00+0000\n"
+"PO-Revision-Date: 2026-04-07 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Czech\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Domain: gutenberg-blocks-usage\n"
+
+#: includes/class-admin-page.php:23
+msgid "Blocks Usage"
+msgstr "Použití bloků"
+
+#: includes/class-admin-page.php:82
+msgid "Gutenberg Blocks Usage"
+msgstr "Použití Gutenberg bloků"
+
+#: includes/class-admin-page.php:84
+msgid "Select a block to see where it is used across your site."
+msgstr "Vyberte blok a zobrazte, kde všude je na vašem webu použitý."
+
+#: includes/class-block-finder.php:119
+msgid "(no title)"
+msgstr "(bez názvu)"
+
+#: assets/src/ui/App.tsx:59
+#: assets/src/ui/App.tsx:72
+msgid "An error occurred. Please try again."
+msgstr "Došlo k chybě. Zkuste to prosím znovu."
+
+#: assets/src/ui/App.tsx:82
+msgid "Found in %d post(s):"
+msgstr "Nalezeno v %d příspěvku(cích):"
+
+#: assets/src/ui/App.tsx:93
+msgid "Loading…"
+msgstr "Načítám..."
+
+#: assets/src/ui/App.tsx:94
+msgid "No blocks found in the database."
+msgstr "V databázi nebyly nalezeny žádné bloky."
+
+#: assets/src/ui/App.tsx:95
+msgid "Select a block…"
+msgstr "Vyberte blok..."
+
+#: assets/src/ui/App.tsx:96
+msgid "Search"
+msgstr "Hledat"
+
+#: assets/src/ui/App.tsx:106
+msgid "This block is not used anywhere."
+msgstr "Tento blok se nikde nepoužívá."
+
+#: assets/src/ui/App.tsx:109
+msgid "Title"
+msgstr "Název"
+
+#: assets/src/ui/App.tsx:110
+msgid "Type"
+msgstr "Typ"
+
+#: assets/src/ui/App.tsx:111
+msgid "Status"
+msgstr "Stav"
+
+#: assets/src/ui/App.tsx:112
+msgid "Occurrences"
+msgstr "Výskyt"
+
+#: assets/src/ui/App.tsx:113
+msgid "Actions"
+msgstr "Akce"
+
+#: assets/src/ui/App.tsx:114
+msgid "Edit"
+msgstr "Upravit"
+
+#: assets/src/ui/App.tsx:115
+msgid "View"
+msgstr "Zobrazit"

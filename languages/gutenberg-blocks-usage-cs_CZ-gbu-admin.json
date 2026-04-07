@@ -1,0 +1,56 @@
+{
+  "translation-revision-date": "2026-04-07 00:00+0000",
+  "generator": "manual",
+  "domain": "gutenberg-blocks-usage",
+  "locale_data": {
+    "gutenberg-blocks-usage": {
+      "": {
+        "domain": "gutenberg-blocks-usage",
+        "lang": "cs_CZ",
+        "plural-forms": "nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;"
+      },
+      "An error occurred. Please try again.": [
+        "Došlo k chybě. Zkuste to prosím znovu."
+      ],
+      "Found in %d post(s):": [
+        "Nalezeno v %d příspěvku(cích):"
+      ],
+      "Loading…": [
+        "Načítám..."
+      ],
+      "No blocks found in the database.": [
+        "V databázi nebyly nalezeny žádné bloky."
+      ],
+      "Select a block…": [
+        "Vyberte blok..."
+      ],
+      "Search": [
+        "Hledat"
+      ],
+      "This block is not used anywhere.": [
+        "Tento blok se nikde nepoužívá."
+      ],
+      "Title": [
+        "Název"
+      ],
+      "Type": [
+        "Typ"
+      ],
+      "Status": [
+        "Stav"
+      ],
+      "Occurrences": [
+        "Výskyt"
+      ],
+      "Actions": [
+        "Akce"
+      ],
+      "Edit": [
+        "Upravit"
+      ],
+      "View": [
+        "Zobrazit"
+      ]
+    }
+  }
+}
