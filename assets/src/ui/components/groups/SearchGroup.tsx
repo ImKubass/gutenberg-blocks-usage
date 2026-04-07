@@ -11,7 +11,7 @@ type SearchGroupProps = {
   selectBlockLabel: string;
   searchLabel: string;
   onChangeBlock: (value: string) => void;
-  onSearch: () => void;
+  onSearchAction: (formData: FormData) => void;
 };
 
 export function SearchGroup({
@@ -24,7 +24,7 @@ export function SearchGroup({
   selectBlockLabel,
   searchLabel,
   onChangeBlock,
-  onSearch,
+  onSearchAction,
 }: SearchGroupProps) {
   const placeholder = isLoadingBlocks
     ? loadingLabel
@@ -36,25 +36,25 @@ export function SearchGroup({
   const disableSearch = isLoadingBlocks || isSearching || !selectedBlock.trim();
 
   return (
-    <div className="gbu-search-bar">
+    <form className="gbu-search-bar" action={onSearchAction}>
       <Select
         id="gbu-block-select"
+        name="block"
         value={selectedBlock}
         disabled={disableSelect}
         options={blocks}
         placeholder={placeholder}
         onChange={onChangeBlock}
-        onEnter={onSearch}
       />
 
       <Button
         id="gbu-search-btn"
         className="button button-primary"
         disabled={disableSearch}
-        onClick={onSearch}
+        type="submit"
       >
         {searchLabel}
       </Button>
-    </div>
+    </form>
   );
 }

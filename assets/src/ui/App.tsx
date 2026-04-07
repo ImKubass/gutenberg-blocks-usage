@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { apiFetch } from "./api";
 import { ResultsGroup } from "./components/groups/ResultsGroup";
 import { SearchGroup } from "./components/groups/SearchGroup";
@@ -9,16 +9,59 @@ type AppProps = {
   config: GbuConfig;
 };
 
+type SearchState = {
+  usage: UsageResponse | null;
+  searchedBlock: string;
+  errorMessage: string;
+};
+
+const initialSearchState: SearchState = {
+  usage: null,
+  searchedBlock: "",
+  errorMessage: "",
+};
+
 export function App({ config }: AppProps) {
   const { apiBase, nonce } = config;
 
   const [blocks, setBlocks] = useState<string[]>([]);
   const [selectedBlock, setSelectedBlock] = useState<string>("");
-  const [usage, setUsage] = useState<UsageResponse | null>(null);
-  const [searchedBlock, setSearchedBlock] = useState<string>("");
   const [isLoadingBlocks, setIsLoadingBlocks] = useState<boolean>(true);
-  const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [loadErrorMessage, setLoadErrorMessage] = useState<string>("");
+
+  const [searchState, runSearchAction, isSearching] = useActionState(
+    async (
+      _previousState: SearchState,
+      formData: FormData,
+    ): Promise<SearchState> => {
+      const blockName = String(formData.get("block") ?? "");
+      const normalizedBlock = blockName.trim();
+
+      if (!normalizedBlock) {
+        return initialSearchState;
+      }
+
+      try {
+        const usage = await apiFetch<UsageResponse>(
+          `${apiBase}/usage?block=${encodeURIComponent(normalizedBlock)}`,
+          nonce,
+        );
+
+        return {
+          usage,
+          searchedBlock: normalizedBlock,
+          errorMessage: "",
+        };
+      } catch {
+        return {
+          usage: null,
+          searchedBlock: normalizedBlock,
+          errorMessage: __("An error occurred. Please try again."),
+        };
+      }
+    },
+    initialSearchState,
+  );
 
   useEffect(() => {
     const loadBlocks = async () => {
@@ -26,7 +69,7 @@ export function App({ config }: AppProps) {
         const response = await apiFetch<string[]>(`${apiBase}/blocks`, nonce);
         setBlocks(response);
       } catch {
-        setErrorMessage(__("An error occurred. Please try again."));
+        setLoadErrorMessage(__("An error occurred. Please try again."));
       } finally {
         setIsLoadingBlocks(false);
       }
@@ -35,31 +78,10 @@ export function App({ config }: AppProps) {
     void loadBlocks();
   }, [apiBase, nonce]);
 
-  const runSearch = async () => {
-    const blockName = selectedBlock.trim();
-    if (!blockName) {
-      return;
-    }
-
-    setIsSearching(true);
-    setErrorMessage("");
-
-    try {
-      const data = await apiFetch<UsageResponse>(
-        `${apiBase}/usage?block=${encodeURIComponent(blockName)}`,
-        nonce,
-      );
-      setSearchedBlock(blockName);
-      setUsage(data);
-    } catch {
-      setErrorMessage(__("An error occurred. Please try again."));
-      setUsage(null);
-    } finally {
-      setIsSearching(false);
-    }
-  };
-
-  const foundIn = sprintf(__("Found in %d post(s):"), usage?.total ?? 0);
+  const foundIn = sprintf(
+    __("Found in %d post(s):"),
+    searchState.usage?.total ?? 0,
+  );
 
   return (
     <>
@@ -73,16 +95,14 @@ export function App({ config }: AppProps) {
         selectBlockLabel={__("Select a block…")}
         searchLabel={__("Search")}
         onChangeBlock={setSelectedBlock}
-        onSearch={() => {
-          void runSearch();
-        }}
+        onSearchAction={runSearchAction}
       />
 
       <ResultsGroup
         isSearching={isSearching}
-        errorMessage={errorMessage}
-        searchedBlock={searchedBlock}
-        usage={usage}
+        errorMessage={loadErrorMessage || searchState.errorMessage}
+        searchedBlock={searchState.searchedBlock}
+        usage={searchState.usage}
         noResultsLabel={__("This block is not used anywhere.")}
         foundInLabel={foundIn}
         tableLabels={{

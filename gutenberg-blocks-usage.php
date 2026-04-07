@@ -5,7 +5,7 @@ declare(strict_types=1);
  * Plugin Name: Gutenberg Blocks Usage
  * Plugin URI:  https://github.com/ImKubass/gutenberg-blocks-usage
  * Description: Find and list all posts/pages where a specific Gutenberg block is used.
- * Version:     1.0.1
+ * Version:     1.1.0
  * Requires PHP: 8.3
  * Author:      ImKubass
  * Text Domain: gutenberg-blocks-usage
@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 defined('ABSPATH') || exit;
 
-define('GBU_VERSION', '1.0.0');
+define('GBU_VERSION', '1.1.0');
 define('GBU_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('GBU_PLUGIN_URL', plugin_dir_url(__FILE__));
 
