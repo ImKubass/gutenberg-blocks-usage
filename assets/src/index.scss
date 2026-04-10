@@ -1,11 +1,6 @@
 @use "slim-select/src/slim-select/slimselect";
-@use "./ui/components/core/Button";
-@use "./ui/components/core/Notice";
-@use "./ui/components/core/Select";
-@use "./ui/components/core/Spinner";
-@use "./ui/components/groups/ResultsGroup";
-@use "./ui/components/groups/SearchGroup";
-@use "./ui/components/groups/TableGroup";
+@use "./ui/components/core/**/*";
+@use "./ui/components/groups/**/*";
 
 /* Gutenberg Blocks Usage - admin styles */
 
