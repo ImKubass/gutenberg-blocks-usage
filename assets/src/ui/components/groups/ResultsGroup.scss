@@ -1,0 +1,23 @@
+.gbu-results {
+	margin-top: 10px;
+}
+
+.gbu-results-summary {
+	font-size: 15px;
+	font-weight: 600;
+	margin-bottom: 12px;
+	color: #1d2327;
+}
+
+.gbu-results-summary .gbu-block-name {
+	font-family: monospace;
+	background: #f0f6fc;
+	border: 1px solid #c3dcf5;
+	border-radius: 3px;
+	padding: 1px 6px;
+	font-size: 13px;
+}
+
+.gbu-results-summary .gbu-count {
+	color: #2271b1;
+}

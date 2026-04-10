@@ -50,7 +50,7 @@ Both endpoints require:
 
 ## Development
 
-Admin assets are in `assets/` and built with Bun + TypeScript.
+Admin assets are in `assets/` and built with Bun + TypeScript + SCSS.
 
 ```bash
 cd assets

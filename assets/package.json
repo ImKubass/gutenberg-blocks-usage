@@ -26,7 +26,8 @@
     "@types/bun": "latest",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "@wordpress/i18n": "^6.16.0"
+    "@wordpress/i18n": "^6.16.0",
+    "sass": "^1.93.2"
   },
   "peerDependencies": {
     "typescript": "^5"

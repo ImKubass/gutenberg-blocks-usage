@@ -1,0 +1,72 @@
+.gbu-table {
+	width: 100%;
+	border-collapse: collapse;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.gbu-table th,
+.gbu-table td {
+	text-align: left;
+	padding: 10px 14px;
+	border-bottom: 1px solid #f0f0f1;
+	font-size: 13px;
+	vertical-align: middle;
+}
+
+.gbu-table thead th {
+	background: #f6f7f7;
+	font-weight: 600;
+	color: #50575e;
+	border-bottom: 2px solid #e2e2e2;
+}
+
+.gbu-table tbody tr:last-child td {
+	border-bottom: none;
+}
+
+.gbu-table tbody tr:hover td {
+	background: #f8f9fa;
+}
+
+.gbu-badge {
+	display: inline-block;
+	background: #2271b1;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 700;
+	border-radius: 10px;
+	padding: 2px 9px;
+	min-width: 28px;
+	text-align: center;
+}
+
+.gbu-post-type {
+	display: inline-block;
+	font-size: 11px;
+	color: #646970;
+	background: #f0f0f1;
+	border-radius: 3px;
+	padding: 1px 7px;
+	margin-left: 6px;
+}
+
+.gbu-status {
+	font-size: 11px;
+	color: #646970;
+	background: #f0f0f1;
+	border-radius: 3px;
+	padding: 1px 7px;
+}
+
+.gbu-status-publish {
+	background: #edfaef;
+	color: #1a7f37;
+}
+
+.gbu-actions a {
+	margin-right: 8px;
+	font-size: 12px;
+}

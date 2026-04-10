@@ -1,12 +1,12 @@
 # Assets Stack
 
-Frontend/admin assets are built with Bun from TypeScript and CSS sources.
+Frontend/admin assets are built with Bun from TypeScript and SCSS sources.
 
 ## Stack
 
 - Runtime + bundler: Bun
 - Script entry: build.ts
-- Source files: src/index.ts and src/index.css
+- Source files: src/index.tsx and src/index.scss
 - Output files: build/index.js and build/index.css
 - Sourcemaps: linked map files in build/
 
@@ -27,6 +27,8 @@ bun run build
 ```
 
 This executes the build script in package.json and produces minified files used by the plugin admin page.
+
+The build uses a Bun plugin in `build.ts` to compile SCSS via `sass`.
 
 ## Watch
 
