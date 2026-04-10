@@ -1,23 +1,4 @@
-import type { ComponentType } from "react"
-import type { Option } from "slim-select/react"
-import SlimSelectReact from "slim-select/react"
-
-type SlimSelectValue = string | string[]
-
-type SlimSelectProps = {
-	data: Partial<Option>[]
-	value?: SlimSelectValue
-	onChange?: (value: SlimSelectValue) => void
-	settings?: {
-		disabled?: boolean
-		showSearch?: boolean
-		searchPlaceholder?: string
-		placeholderText?: string
-		allowDeselect?: boolean
-	}
-}
-
-const SlimSelect = SlimSelectReact as unknown as ComponentType<SlimSelectProps>
+import type { ChangeEvent } from "react"
 
 type SelectProps = {
 	id?: string
@@ -38,44 +19,30 @@ export function Select({
 	placeholder,
 	onChange,
 }: SelectProps) {
-	const data: Partial<Option>[] = options.map((option) => ({
-		text: option,
-		value: option,
-	}))
-
-	const handleChange = (nextValue: SlimSelectValue) => {
-		const normalizedValue = Array.isArray(nextValue)
-			? (nextValue[0] ?? "")
-			: nextValue
-
-		onChange(normalizedValue)
+	const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+		onChange(event.target.value)
 	}
-
-	const slimSelectKey = `gbu-select-${disabled ? "disabled" : "enabled"}`
 
 	return (
 		<div className="gbu-select-field">
-			{name ? (
-				<input
-					type="hidden"
-					id={id}
-					name={name}
-					value={value}
-					disabled={disabled}
-				/>
-			) : null}
-
-			<SlimSelect
-				key={slimSelectKey}
-				data={data}
+			<select
+				id={id}
+				name={name}
+				className="gbu-native-select"
 				value={value}
+				disabled={disabled}
 				onChange={handleChange}
-				settings={{
-					showSearch: true,
-					searchPlaceholder: placeholder,
-					placeholderText: placeholder,
-				}}
-			/>
+			>
+				<option value="" disabled>
+					{placeholder}
+				</option>
+
+				{options.map((option) => (
+					<option key={option} value={option}>
+						{option}
+					</option>
+				))}
+			</select>
 		</div>
 	)
 }

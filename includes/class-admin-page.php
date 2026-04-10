@@ -13,6 +13,12 @@ final class GBU_Admin_Page
 {
 
     public const string PAGE_SLUG = 'gutenberg-blocks-usage';
+    private const string BOOTSTRAP_HANDLE = 'gbu-admin-bootstrap';
+
+    private const string MANIFEST_FILE_PATH = 'assets/build/manifest.json';
+
+    private static ?array $manifest = null;
+    private static bool $manifestLoaded = false;
 
     /**
      * Register the admin menu item (called on 'admin_menu').
@@ -41,19 +47,33 @@ final class GBU_Admin_Page
             return;
         }
 
+        $manifest = self::getManifest();
+
+
+        if (!is_array($manifest)) {
+            return;
+        }
+
+        $adminJs = $manifest['index.js'] ?? null;
+        $adminCss = $manifest['index.css'] ?? null;
+
+
+        if ($adminCss === null or $adminJs === null) {
+            return;
+        }
+
         wp_enqueue_style(
             'gbu-admin',
-            GBU_PLUGIN_URL . 'assets/build/index.css',
+            GBU_PLUGIN_URL . 'assets/build/' . $adminCss,
             [],
             GBU_VERSION
         );
 
-        wp_enqueue_script(
+        wp_enqueue_script_module(
             'gbu-admin',
-            GBU_PLUGIN_URL . 'assets/build/index.js',
-            ['wp-i18n'],
+            GBU_PLUGIN_URL . 'assets/build/' . $adminJs,
+            [],
             GBU_VERSION,
-            true
         );
 
         wp_set_script_translations(
@@ -62,13 +82,20 @@ final class GBU_Admin_Page
             GBU_PLUGIN_DIR . 'languages'
         );
 
-        wp_localize_script(
-            'gbu-admin',
-            'GBU',
-            [
-                'apiBase' => esc_url_raw(rest_url('gutenberg-blocks-usage/v1')),
-                'nonce' => wp_create_nonce('wp_rest'),
-            ]
+        // Script modules cannot be localized directly via wp_localize_script().
+        // Enqueue a tiny classic script handle and inject boot data there.
+        wp_register_script(self::BOOTSTRAP_HANDLE, false, [], GBU_VERSION, true);
+        wp_enqueue_script(self::BOOTSTRAP_HANDLE);
+
+        $bootData = [
+            'apiBase' => esc_url_raw(rest_url('gutenberg-blocks-usage/v1')),
+            'nonce' => wp_create_nonce('wp_rest'),
+        ];
+
+        wp_add_inline_script(
+            self::BOOTSTRAP_HANDLE,
+            'window.GBU = ' . wp_json_encode($bootData) . ';',
+            'before'
         );
     }
 
@@ -86,5 +113,31 @@ final class GBU_Admin_Page
             <div id="gbu-app-root"></div>
         </div>
         <?php
+    }
+
+    private static function getManifest(): ?array
+    {
+        if (self::$manifestLoaded) {
+            return self::$manifest;
+        }
+
+        self::$manifestLoaded = true;
+
+        $manifestFilePath = GBU_PLUGIN_DIR . self::MANIFEST_FILE_PATH;
+
+
+        if (!file_exists($manifestFilePath)) {
+            return self::$manifest = null;
+        }
+
+        $manifestContent = file_get_contents($manifestFilePath);
+        if ($manifestContent === false) {
+            return self::$manifest = null;
+        }
+
+        $manifest = json_decode($manifestContent, true);
+
+
+        return self::$manifest = is_array($manifest) ? $manifest : null;
     }
 }

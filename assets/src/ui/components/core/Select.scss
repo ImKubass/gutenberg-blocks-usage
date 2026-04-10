@@ -1,30 +1,5 @@
-.gbu-search-bar .gbu-select-field {
-	/* Slim Select theme tuned to WordPress admin inputs */
-	--ss-primary-color: #2271b1;
-	--ss-bg-color: #ffffff;
-	--ss-font-color: #1d2327;
-	--ss-border-color: #8c8f94;
-	--ss-border-radius: 4px;
-	--ss-main-height: 36px;
-	--ss-search-height: 36px;
-	--ss-option-height: auto;
-	--ss-content-height: 300px;
-	--ss-spacing-l: 8px;
-	--ss-spacing-m: 6px;
-	--ss-spacing-s: 4px;
-	--ss-animation-timing: 0.2s;
-
-	min-width: 320px;
-	max-width: 480px;
-	flex: 1;
-}
-
-.gbu-search-bar .ss-main {
-	min-height: 36px;
-	font-size: 14px;
-	border-color: #8c8f94;
-}
-
-.gbu-search-bar .ss-content {
-	z-index: 1000;
+.gbu-search-bar .gbu-native-select:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
 }
